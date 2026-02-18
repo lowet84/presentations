@@ -56,7 +56,7 @@ layout: fact
 layout: image
 image: /earths.png
 backgroundSize: contain
----z
+---
 ---
 
 
