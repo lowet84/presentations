@@ -19,57 +19,174 @@ layout: intro
   </div>
 </div>
 
+<!-- Presentera mig själv här -->
 ---
 layout: fact
 ---
-# Intro
----
-layout: fact
----
-## Gungan
+<span style="font-size: 10rem;">Intro</span>
 
+<!-- Bara en label -->
+---
+layout: fact
+---
+# Gungan
+
+
+<!-- Vi startar på gungan -->
 ---
 layout: image
 image: /swing1.jpg
 backgroundSize: contain
 ---
+<!-- Inte den -->
+
+
 ---
 layout: image
 image: /swing2.jpg
 backgroundSize: contain
 ---
+
+
+<!-- Inte den heller-->
 ---
 layout: image
 image: /swing3.jpg
 backgroundSize: contain
 ---
+
+<!-- Nej, nu får det räcka-->
 ---
 layout: image
 image: /swingFinal.webp
 backgroundSize: contain
 ---
+<!-- Ah, den! -->
 ---
 layout: fact
 ---
-## Tre verkligheter
+# Tre verkligheter
+
+<!--
+Gå vidare till bilden
+-->
 ---
 layout: image
 image: /earths.png
 backgroundSize: contain
 ---
+
+<!--
+3 verklighetsbilder
+Produktägaren
+Utvecklaren
+Verkligheten
+-->
+---
+layout: fact
+---
+<span style="font-size: 10rem;">Akt 1 - S3D</span>
+
+<!--
+Börjar med länken mellan produktägare och utvecklare
+-->
+---
+layout: fact
+---
+# Kapitel 1 
+## Var vi är nu
+
+---
+layout: center
+---
+Hur gör man idag?
+
+<!--
+Man skriver text
+-->
+---
+layout: center
+---
+Feature: Export till PDF
+- Mål: Användare ska kunna ladda ner sina rapporter som PDF-filer direkt från vyn "Mina dokument".
+- Funktion: En knapp märkt "Exportera" genererar en nedladdningsbar fil som speglar den aktuella tabellen.
+- Design: Knappen ska följa existerande UI-mönster (primary blue) och placeras i övre högra hörnet.
+- Prestanda: Exporten får ta max 3 sekunder och ska fungera i både Chrome och Safari.
+
+<!--
+Nåt sånt här? Problemet?
+
+Svårt att ha översikt över många features
+
+Edge cases?
+
+Refaktorering
+-->
+---
+layout: center
+---
+# Gherkin
+bättre text?
+---
+layout: center
+---
+```gherkin
+Egenskap: Export till PDF
+  Som en användare
+  Vill jag kunna ladda ner mina rapporter som PDF-filer från vyn "Mina dokument"
+  För att kunna spara och dela informationen exakt så som den visas i tabellen.
+
+  Scenario: Framgångsrik nedladdning av PDF
+    Givet att jag befinner mig i vyn "Mina dokument"
+    Och tabellen visar mina aktuella rapporter
+    När jag klickar på knappen "Exportera" i det övre högra hörnet
+    Så ska en PDF-fil genereras och laddas ner till min enhet
+    Och innehållet i PDF-filen ska exakt spegla den aktuella tabellen
+
+  Scenario: Prestandakrav och webbläsarstöd för export
+    Givet att jag är inloggad via Chrome eller Safari
+    När jag initierar en export till PDF
+    Så måste genereringen och nedladdningen av filen slutföras inom maximalt 3 sekunder
+
+  Scenario: Design av exportknappen
+    Givet att jag befinner mig i vyn "Mina dokument"
+    Så ska knappen "Exportera" vara placerad i det övre högra hörnet
+    Och knappen ska ha stilen "primary blue" för att följa existerande UI-mönster
+```
+
+<!--
+Liter mer strukturerat
+
+Lider av samma problem
+-->
+---
+layout: center
+---
+# Mål
+Bättre än text!
+
+<!--
+Här kommer S3D in som ett alternativ 
+
+(System design driven development)
+-->
+--- 
+layout: center
 ---
 
+# Kapitel 2
+## Case
 
+---
+layout: center
+---
+# Vi är
+Webbteam på Pengabanken 
 
-## Akt 1 - S3D
-### Kapitel 1 - Intro
-- Hur gör man idag - Text
-- Bättre text - gherkin
-- Bättre än text
+# Vi ska göra
+Feature: Flytta pengar mellan egna konton
 
-### Kapitel 2 - Case
-- Webbteam - Pengabanken
-- Flytta pengar mellan egna konton
+---
 
 ### Kapitel 3 - S3D flöde
 - Början av flödet - **Start**
