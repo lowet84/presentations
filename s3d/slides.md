@@ -204,9 +204,11 @@ layout: fact
 # Kapitel 3 
 ## S3D flöde
 
-<!-- Nu börjar vi rita S3D-flöde -->
+<!--
+Nu börjar vi rita S3D-flöde
 
-
+Just nu ritar vi S3D i FigJam, editor under utveckling
+-->
 ---
 layout: center
 ---
@@ -414,8 +416,6 @@ layout: fact
 Börjar med länken mellan produktägare och utvecklare
 -->
 ---
-
-## Akt 2 - Testgenerering och test-driven utveckling
 
 ### Kapitel 5 - Generera tester
 - Knyter tillbaka till gherkin
