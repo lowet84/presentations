@@ -82,6 +82,11 @@ backgroundSize: contain
 Produktägaren
 Utvecklaren
 Verkligheten
+
+## Det intressanta:
+Länkarna mellan världarna
+
+Säkerställa att det vi vill ha är det vi får.
 -->
 ---
 layout: fact
@@ -129,6 +134,10 @@ layout: center
 ---
 # Gherkin
 bättre text?
+
+<!--
+Gå vidare till text
+-->
 ---
 layout: center
 ---
@@ -207,7 +216,9 @@ layout: fact
 <!--
 Nu börjar vi rita S3D-flöde
 
-Just nu ritar vi S3D i FigJam, editor under utveckling
+Just nu ritar vi S3D i FigJam
+
+Ett antal symboler, går igenom dem en efter en
 -->
 ---
 layout: center
@@ -413,7 +424,7 @@ layout: fact
 # Testgenerering och test-driven utveckling
 
 <!--
-Börjar med länken mellan produktägare och utvecklare
+Går nu över till länken mellan utvecklare och koden
 -->
 ---
 layout: fact
@@ -422,7 +433,7 @@ layout: fact
 ## Generera tester
 
 <!--
-Går nu över till länken mellan utvecklare och koden
+Gå vidare
 -->
 ---
 layout: center
@@ -622,12 +633,12 @@ Vidare till listan
 -->
 
 ---
-layout:center
+layout: fact
 ---
-- Rita
-- Testa
-- Koda
-- Upprepa
+## Rita
+## Testa
+## Koda
+## Upprepa
 ---
 layout: fact
 ---
