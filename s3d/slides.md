@@ -9,6 +9,7 @@ layout: intro
 
 # Testdriven utevckling
 ## med System-design-driven-development (S3D)
+##### *Tre akter, 10 kapitel*
 
 <div class="absolute bottom-10">
   <span class="font-700 text-xl">
@@ -85,7 +86,8 @@ Verkligheten
 ---
 layout: fact
 ---
-<span style="font-size: 10rem;">Akt 1 - S3D</span>
+<span style="font-size: 10rem;">Akt 1</span>
+# S3D
 
 <!--
 Börjar med länken mellan produktägare och utvecklare
@@ -169,9 +171,11 @@ Bättre än text!
 Här kommer S3D in som ett alternativ 
 
 (System design driven development)
+
+Rita krav som ett flödesschema
 -->
 --- 
-layout: center
+layout: fact
 ---
 
 # Kapitel 2
@@ -184,27 +188,232 @@ layout: center
 Webbteam på Pengabanken 
 
 # Vi ska göra
-Feature: Flytta pengar mellan egna konton
+Feature: Front-end för att flytta pengar mellan egna konton
+
+
+<!--
+Enkel feature
+
+Välj konton, ange summa, bekräfta-sida
+-->
+
 
 ---
+layout: fact
+---
+# Kapitel 3 
+## S3D flöde
 
-### Kapitel 3 - S3D flöde
-- Början av flödet - **Start**
-- Visa fält - **Message**
-- Klicka fortsätt - **User Action**
-- Alla fält ifyllda? - **Gateway**
-- Felhantering, användardata
-- Gå till bekräfta-sidan - **Subprocess**
-- Visa sammanfattning
-- Avbryt - **Signal send**
-- Klicka genomför
-- Anrop till backend - **Service Call**
-- Felhantering, backendanrop, *vad ska vi göra här?*
-- Gå till översikt
+<!-- Nu börjar vi rita S3D-flöde -->
 
-### Kapitel 4 - Shift left
-- Ju tidigare man hittar en bugg desto billigare att fixa
-- Tillbaka till flödet - Hitta minst två buggar
+
+---
+layout: center
+---
+# Start
+---
+layout: image
+image: /FlowStart.png
+backgroundSize: contain
+---
+<!-- Vi börjar ett flöde med en start-nod -->
+
+
+---
+layout: center
+---
+# Message
+---
+layout: image
+image: /FlowMessage1.png
+backgroundSize: contain
+---
+<!--
+Visa fält
+
+Från
+
+Till
+
+Belopp
+-->
+
+---
+layout: center
+---
+# User action
+---
+layout: image
+image: /FlowUserAction1.png
+backgroundSize: contain
+---
+<!--
+Användaren klickar fortsätt
+-->
+
+---
+layout: center
+---
+# Gateway
+---
+layout: image
+image: /FlowGateway1.png
+backgroundSize: contain
+---
+<!--
+Validering
+-->
+
+---
+layout: center
+---
+# Valideringsfel
+---
+layout: image
+image: /FlowMessage2.png
+backgroundSize: contain
+---
+<!--
+Valideringsfel
+-->
+
+---
+layout: center
+---
+# Subprocess
+---
+layout: image
+image: /FlowSubprocess1.png
+backgroundSize: contain
+---
+<!--
+Subprocess länkas med namn till en ny startnod
+
+Gå vidare till nästa sida
+-->
+
+---
+layout: center
+---
+# Sammanfattning
+---
+layout: image
+image: /FlowMessage3.png
+backgroundSize: contain
+---
+<!--
+Visa sammanfattning av betalningen
+-->
+
+---
+layout: center
+---
+# Avbryt
+---
+layout: image
+image: /FlowUserAction2.png
+backgroundSize: contain
+---
+<!--
+Användaren avbryter betalningen
+
+Signal send kan användas för att skicka en "signal" eller att gå någonstans, exempelvis tillbaka
+-->
+
+---
+layout: center
+---
+# Genomför betalningen
+---
+layout: image
+image: /FlowUserAction3.png
+backgroundSize: contain
+---
+<!--
+Användaren klickar på genomför betalningen
+-->
+
+---
+layout: center
+---
+# Service call
+---
+layout: image
+image: /FlowServiceCall1.png
+backgroundSize: contain
+---
+<!--
+Anrop till backend för att genomföra betalningen
+-->
+
+---
+layout: center
+---
+# Felhantering
+---
+layout: image
+image: /FlowMessage4.png
+backgroundSize: contain
+---
+<!--
+Felhantera backend-anrop
+-->
+
+---
+layout: center
+---
+# Betalning genomförd
+---
+layout: image
+image: /FlowFull.png
+backgroundSize: contain
+---
+<!--
+Betalningen genomförd
+
+Gå tillbaka till översikt, extern sida
+-->
+
+---
+layout: fact
+---
+# Kapitel 4 
+## Shift left
+
+---
+layout: image
+image: /ShiftLeft.png
+backgroundSize: contain
+---
+<!--
+Ju tidigare man hittar en bugg desto billigare att fixa
+
+Tillbaka till flödet - Hitta minst två buggar
+-->
+
+---
+layout: image
+image: /FlowFull.png
+backgroundSize: contain
+---
+<!--
+# Hitta minst två buggar
+
+Belopp för högt, inga pengar på kontot?
+
+Vad har vi för konton egentligen?
+-->
+
+---
+layout: fact
+---
+<span style="font-size: 10rem;">Akt 2</span>
+# Testgenerering och test-driven utveckling
+
+<!--
+Börjar med länken mellan produktägare och utvecklare
+-->
+---
 
 ## Akt 2 - Testgenerering och test-driven utveckling
 
