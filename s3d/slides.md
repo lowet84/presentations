@@ -7,7 +7,7 @@ drawings:
 layout: intro
 ---
 
-# Testdriven utevckling
+# Testdriven utveckling
 ## med System-design-driven-development (S3D)
 ##### *Tre akter, 10 kapitel*
 
@@ -422,41 +422,232 @@ layout: fact
 ## Generera tester
 
 <!--
-Börjar med länken mellan produktägare och utvecklare
+Går nu över till länken mellan utvecklare och koden
 -->
 ---
+layout: center
+---
+Gherkin igen
+```gherkin
+Egenskap: Export till PDF
+  Som en användare
+  Vill jag kunna ladda ner mina rapporter som PDF-filer från vyn "Mina dokument"
+  För att kunna spara och dela informationen exakt så som den visas i tabellen.
 
-### Kapitel 5 - Generera tester
-- Knyter tillbaka till gherkin
-- Generera tester - utvecklaren implementerar innehållet
-- Targets - i detta fall Playwright för front-end
+  Scenario: Framgångsrik nedladdning av PDF
+    Givet att jag befinner mig i vyn "Mina dokument"
+    Och tabellen visar mina aktuella rapporter
+    När jag klickar på knappen "Exportera" i det övre högra hörnet
+    Så ska en PDF-fil genereras och laddas ner till min enhet
+    Och innehållet i PDF-filen ska exakt spegla den aktuella tabellen
 
-### Kapitel 6 - Vad testar vi?
-- Messages
-- Signal send
-- Service calls
+  Scenario: Prestandakrav och webbläsarstöd för export
+    Givet att jag är inloggad via Chrome eller Safari
+    När jag initierar en export till PDF
+    Så måste genereringen och nedladdningen av filen slutföras inom maximalt 3 sekunder
 
-### Kapitel 7 - Hur testar vi?
-- Gateways
-- User actions
+  Scenario: Design av exportknappen
+    Givet att jag befinner mig i vyn "Mina dokument"
+    Så ska knappen "Exportera" vara placerad i det övre högra hörnet
+    Och knappen ska ha stilen "primary blue" för att följa existerande UI-mönster
+```
 
-### Kapitel 8 - Exempel
-- Lifecycle - gateways, mocks, actions, pre test, last action test
-- Mocka service call
-- Implementera user action
-- Testa utfall
+<!--
+Meningen med gherkin är ju att generera tester
 
-### Kapitel 9 - Refaktorering
-- Ändra i flöde, tester slutar fungera
+**Cucumber** eller **SpecFlow**
+-->
+---
+layout: fact
+---
+# Kapitel 6
+## Vad testar vi?
+
+<!--
+Gå vidare till bilden
+-->
+---
+layout: image
+image: /WhatWeTest.png
+backgroundSize: contain
+---
+<!--
+# Vi testar:
+
+Messages
+
+Signal Send
+
+Service calls (för att se att de faktiskt anropas)
+-->
+
+---
+layout: fact
+---
+# Kapitel 7
+## Hur testar vi?
+
+<!--
+Gå vidare till bilden
+-->
+---
+layout: image
+image: /HowWeTest.png
+backgroundSize: contain
+---
+<!--
+# Vi testar:
+
+Hittar väg till nod som ska testas
+
+Gateway-värden för att ta sig dit
+
+User actions
+-->
+
+---
+layout: fact
+---
+# Kapitel 8
+## Exempel
+
+<!--
+Gå vidare till koden
+-->
+---
+layout: code
+---
+```typescript
+test('Gå till översikt', async ({ page, context }) => {
+  const gateways: GatewayCollection = {
+    'Alla fält ifyllda': 'ja',
+    'Fel från Genomför överföring': 'nej',
+  }
+  const state = await handles.setup({ gateways, page, context } as any)
+  const args = { gateways, state, page, context } as any
+  await handleServiceCalls(args)
+  await handles.start(args)
+  await handles.action_klickaFortsatt(args)
+  let testFunc = handles.test_gaTillOversikt
+  if (testFunc.length === 2) testFunc = (await testFunc(args)) as any
+  await handles.action_klickaGenomfor(args)
+  expect(await testFunc(args)).toBeUndefined()
+})
+```
+
+<!--
+### Target, i detta fall Playwright för front-end
+
+
+## Lifecycle
+- gateways, 
+- mocka service calls
+- genomför alla actions utom sista
+- pre test
+- sista action 
+- test
+-->
+
+---
+layout: code
+---
+```typescript
+import {Demo} from "./demo.spec";
+
+export const handles: Demo = {
+  serviceCall_genomforOverforing: async ({page, context})=>{
+    // Mocka service-anrop här
+    // if fel?? svara med fel
+    // annars svara med data
+  },
+  action_klickaFortsatt: async ({page, context})=>{
+    // Klicka på fortsätt här
+  },
+  test_genomforOverforing: async ({page, context})=>{
+    // testa att vi kommer vidare till rätt sida
+  }
+}
+```
+<!--
+# Utvecklaren implementerar innehållet
+-->
+---
+layout: fact
+---
+# Kapitel 9 
+## Refaktorering
+
+<!--
+Vidare till bilden
+-->
+---
+layout: image
+image: /RefactorError.png
+backgroundSize: contain
+---
+<!--
+Om man ändrar på flödet så slutar testerna att fungera
+
+Exempel:
 - Byta text
 - Nya noder
 - Ändra ordning
+-->
 
-## Akt 3 - Hur jobbar man med S3D?
-### Kapitel 10 - arbetsflöde
-- Först - rita flöde och diskutera med team och produktägare
-- Implementera ett eller nåra få tester
-- Implementera feature i app tills tester går igenom
-- Upprepa!
+---
+layout: fact
+---
+<span style="font-size: 10rem;">Akt 3</span>
+# Hur jobbar man med S3D?
 
-## Epilog - roadmap och frågor
+<!--
+
+-->
+---
+layout: fact
+---
+# Kapitel 10
+## Arbetsflöde
+
+<!--
+Vidare till bilden
+-->
+---
+layout: image
+image: /EatSleep.jpg
+backgroundSize: contain
+---
+<!--
+Vidare till listan
+-->
+
+---
+layout:center
+---
+- Rita
+- Testa
+- Koda
+- Upprepa
+---
+layout: fact
+---
+<span style="font-size: 10rem;">Epilog</span>
+# roadmap och frågor
+
+<!--
+Vi bygger editor
+
+Frågor?
+-->
+
+---
+layout: fact
+---
+<span style="font-size: 10rem;">Tack</span>
+# Stort tack att ni ville komma
+
+<!--
+Nu är det slut.
+-->
+---
+
